@@ -30,6 +30,7 @@ logo = """████████╗████████╗██╗    █
 def pre_menu():
     os.system("cls")
     print_formatted_text(HTML("<ansiwhite>"+logo+"</ansiwhite>"), style=style)
+    print_formatted_text(HTML(warning+"你现在正在使用开发版本"), style=style)
     print()
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键进入  &lt;</ansibrightblack>"), style=style, end='')
     getch()
@@ -55,7 +56,9 @@ def menu():
             ("about","关于脚本"),
             ("exit","退出")])
         if result == "cmd":
-            os.system("cls && cmd")
+            os.system("cls")
+            print_formatted_text(HTML(info+"已进入cmd"), style=style)
+            os.system("cmd")
         elif result == "about":
             about()
         elif result == "exit":
