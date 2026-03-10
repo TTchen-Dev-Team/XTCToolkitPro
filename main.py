@@ -51,11 +51,14 @@ def menu():
         print_formatted_text(HTML("<ansiwhite>"+logo+"</ansiwhite>"), style=style)
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
         result = choice(message="",options=[
-            ("1","关于脚本"),
-            ("2","退出")])
+            ("1","在此处打开cmd"),
+            ("2","关于脚本"),
+            ("3","退出")])
         if result == "1":
-            about()
+            os.system("cls && cmd")
         elif result == "2":
+            about()
+        elif result == "3":
             break
     os.system("cls")
 
