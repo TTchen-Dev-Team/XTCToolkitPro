@@ -32,7 +32,7 @@ def pre_menu():
     print_formatted_text(HTML("<ansiwhite>"+logo+"</ansiwhite>"), style=style)
     print_formatted_text(HTML(warning+"你现在正在使用开发版本"), style=style)
     print()
-    print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键进入  &lt;</ansibrightblack>"), style=style, end='')
+    print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键进入 &lt;</ansibrightblack>"), style=style, end='')
     getch()
 
 def about():
@@ -43,7 +43,7 @@ def about():
     print("="*50)
     print("开发版本 v0.1.0")
     print()
-    print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键退出  &lt;</ansibrightblack>"), style=style, end='')
+    print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键退出 &lt;</ansibrightblack>"), style=style, end='')
     getch()
 
 def debug():
@@ -61,7 +61,7 @@ def debug():
             print_formatted_text(HTML(error+"错误"), style=style)
             print_formatted_text(HTML(success+"成功"), style=style)
             print()
-            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续  &lt;</ansibrightblack>"), style=style, end='')
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
         elif result == "exit":
             break
