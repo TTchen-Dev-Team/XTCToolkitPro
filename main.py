@@ -46,6 +46,27 @@ def about():
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键退出  &lt;</ansibrightblack>"), style=style, end='')
     getch()
 
+def debug():
+    while True:
+        os.system("cls")
+        print_formatted_text(HTML("<ansiwhite>"+logo+"</ansiwhite>"), style=style)
+        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
+        result = choice(message="",options=[
+            ("color","色卡"),
+            ("exit","退出")])
+        if result == "color":
+            os.system("cls")
+            print_formatted_text(HTML(info+"信息"), style=style)
+            print_formatted_text(HTML(warning+"警告"), style=style)
+            print_formatted_text(HTML(error+"错误"), style=style)
+            print_formatted_text(HTML(success+"成功"), style=style)
+            print()
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续  &lt;</ansibrightblack>"), style=style, end='')
+            getch()
+        elif result == "exit":
+            break
+    os.system("cls")
+
 def menu():
     while True:
         os.system("cls")
@@ -54,6 +75,7 @@ def menu():
         result = choice(message="",options=[
             ("cmd","在此处打开cmd"),
             ("about","关于脚本"),
+            ("debug","调试菜单"),
             ("exit","退出")])
         if result == "cmd":
             os.system("cls")
@@ -63,6 +85,8 @@ def menu():
             about()
         elif result == "exit":
             break
+        elif result == "debug":
+            debug()
     os.system("cls")
 
 if __name__ == "__main__":
