@@ -74,6 +74,7 @@ def tools():
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
         result = choice(message="",options=[
             ("scrcpy","传屏"),
+            ("install","安装应用"),
             ("exit","退出")])
         if result == "exit":
             break
@@ -83,6 +84,12 @@ def tools():
             if os.system("scrcpy"):
                 print_formatted_text(HTML(error+"传屏失败！"), style=style)
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+            getch()
+        else:
+            os.system("cls")
+            print_formatted_text(HTML(warning+"功能开发中！"), style=style)
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+            getch()
 
 def menu():
     while True:
@@ -90,9 +97,12 @@ def menu():
         print_formatted_text(HTML(logo), style=style)
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
         result = choice(message="",options=[
+            ("root","一键root"),
+            ("apks","应用与模块管理"),
             ("cmd","在此处打开cmd[含adb调试环境]"),
             ("about","关于脚本"),
             ("tools","常用工具"),
+            ("menu","高级菜单"),
             ("debug","调试菜单"),
             ("exit","退出")])
         if result == "cmd":
@@ -108,7 +118,11 @@ def menu():
             debug()
         elif result == "tools":
             tools()
-
+        else:
+            os.system("cls")
+            print_formatted_text(HTML(warning+"功能开发中！"), style=style)
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+            getch()
 
 if __name__ == "__main__":
     os.system("title TTWatchBox by TTchen")
