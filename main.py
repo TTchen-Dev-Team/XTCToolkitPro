@@ -4,6 +4,9 @@ from prompt_toolkit import print_formatted_text, HTML
 from prompt_toolkit.styles import Style
 from prompt_toolkit.shortcuts import choice
 
+import tkinter as tk
+from tkinter import filedialog
+
 import os
 
 style = Style.from_dict({
@@ -45,13 +48,15 @@ def about():
     print_formatted_text(HTML(logo), style=style)
     print("="*50)
     print("作者 TT_chen")
+    print("TTchen Dev Team 开发")
     print("="*50)
-    print("开发版本 v0.1.0")
+    print("开发版本 v0.1.5-alpha.1")
+    print("请勿泄露开发版本！！！")
     print()
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键退出 &lt;</ansibrightblack>"), style=style, end='')
     getch()
 
-def debug():
+def debug_menu():
     while True:
         os.system("cls")
         print_formatted_text(HTML(logo), style=style)
@@ -79,7 +84,6 @@ def tools():
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
         result = choice(message="",options=[
             ("scrcpy","传屏"),
-            ("install","安装应用"),
             ("exit","退出")])
         if result == "exit":
             break
@@ -93,6 +97,44 @@ def tools():
             print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
+        else:
+            os.system("cls")
+            print_formatted_text(HTML(warning+"功能开发中！"), style=style)
+            print()
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+            getch()
+
+def apk_menu():
+    while True:
+        os.system("cls")
+        print_formatted_text(HTML(logo), style=style)
+        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
+        result = choice(message="",options=[
+            ("install","安装应用"),
+            ("exit","退出")])
+        if result == "exit":
+            break
+        elif result == "install":
+            os.system("cls")
+            root = tk.Tk()
+            root.withdraw()
+            file_types = [
+                ("APK文件", "*.apk"),
+                ("所有文件", "*.*")
+            ]
+            file_path = filedialog.askopenfilename(
+                title="选择APK文件",
+                filetypes=file_types
+            )
+            root.destroy()
+            if file_path:
+                if os.system("adb install "+file_path):
+                    print_formatted_text(HTML(error+"安装失败！"), style=style)
+                else:
+                    print_formatted_text(HTML(success+"安装完成！"), style=style)
+                print()
+                print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+                getch()
         else:
             os.system("cls")
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
@@ -124,9 +166,11 @@ def menu():
             os.system("cls")
             break
         elif result == "debug":
-            debug()
+            debug_menu()
         elif result == "tools":
             tools()
+        elif result == "apks":
+            apk_menu()
         else:
             os.system("cls")
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
