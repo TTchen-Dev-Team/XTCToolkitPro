@@ -75,7 +75,6 @@ def tools():
         result = choice(message="",options=[
             ("scrcpy","传屏"),
             ("exit","退出")])
-        
         if result == "exit":
             break
         elif result == "scrcpy":
