@@ -2,3 +2,5 @@
 build/
 dist/
 main.spec
+.run
+run_build/

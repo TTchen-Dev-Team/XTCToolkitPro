@@ -29,7 +29,7 @@ logo = """████████╗████████╗██╗    █
 
 def pre_menu():
     os.system("cls")
-    print_formatted_text(HTML("<ansiwhite>"+logo+"</ansiwhite>"), style=style)
+    print_formatted_text(HTML(logo), style=style)
     print_formatted_text(HTML(warning+"你现在正在使用开发版本"), style=style)
     print()
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键进入 &lt;</ansibrightblack>"), style=style, end='')
@@ -37,7 +37,7 @@ def pre_menu():
 
 def about():
     os.system("cls")
-    print_formatted_text(HTML("<ansiwhite>"+logo+"</ansiwhite>"), style=style)
+    print_formatted_text(HTML(logo), style=style)
     print("="*50)
     print("作者 TT_chen")
     print("="*50)
@@ -49,7 +49,7 @@ def about():
 def debug():
     while True:
         os.system("cls")
-        print_formatted_text(HTML("<ansiwhite>"+logo+"</ansiwhite>"), style=style)
+        print_formatted_text(HTML(logo), style=style)
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
         result = choice(message="",options=[
             ("color","色卡"),
@@ -67,14 +67,33 @@ def debug():
             break
     os.system("cls")
 
+def tools():
+    while True:
+        os.system("cls")
+        print_formatted_text(HTML(logo), style=style)
+        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
+        result = choice(message="",options=[
+            ("scrcpy","传屏"),
+            ("exit","退出")])
+        
+        if result == "exit":
+            break
+        elif result == "scrcpy":
+            os.system("cls")
+            print_formatted_text(HTML(info+"正在打开传屏……"), style=style)
+            if os.system("scrcpy"):
+                print_formatted_text(HTML(error+"传屏失败！"), style=style)
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+
 def menu():
     while True:
         os.system("cls")
-        print_formatted_text(HTML("<ansiwhite>"+logo+"</ansiwhite>"), style=style)
+        print_formatted_text(HTML(logo), style=style)
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
         result = choice(message="",options=[
-            ("cmd","在此处打开cmd"),
+            ("cmd","在此处打开cmd[含adb调试环境]"),
             ("about","关于脚本"),
+            ("tools","常用工具"),
             ("debug","调试菜单"),
             ("exit","退出")])
         if result == "cmd":
@@ -84,10 +103,13 @@ def menu():
         elif result == "about":
             about()
         elif result == "exit":
+            os.system("cls")
             break
         elif result == "debug":
             debug()
-    os.system("cls")
+        elif result == "tools":
+            tools()
+
 
 if __name__ == "__main__":
     os.system("title TTWatchBox by TTchen")
