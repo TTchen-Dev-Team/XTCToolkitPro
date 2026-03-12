@@ -203,7 +203,7 @@ def links():
         print_formatted_text(HTML(logo), style=style)
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
         result = choice(message="",options=[
-            ("0", "超级恢复文件（来自ATB）")
+            ("0","超级恢复文件（来自ATB）"),
             ("exit","退出")])
         links_list=[
             "https://www.123865.com/s/Q5JfTd-hEbWH"
