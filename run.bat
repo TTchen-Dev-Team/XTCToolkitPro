@@ -7,13 +7,13 @@ if not exist .run (
     echo.>.run
 )
 echo 正在复制文件
-run_build\adb.exe kill-server 2>nul
-rd /s /q run_build 2>nul
-mkdir run_build
-copy main.py run_build\main.py
-xcopy /s /e /y scripts run_build
-xcopy /s /e /y include run_build
-xcopy /s /e /y tools run_build
-cd run_build
+main\adb.exe kill-server 2>nul
+rd /s /q main 2>nul
+mkdir main
+copy main.py main\main.py
+xcopy /s /e /y scripts main
+xcopy /s /e /y include main
+xcopy /s /e /y tools main
+cd main
 python main.py
 cd ..
