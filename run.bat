@@ -11,6 +11,7 @@ run_build\adb.exe kill-server 2>nul
 rd /s /q run_build 2>nul
 mkdir run_build
 copy main.py run_build\main.py
+xcopy /s /e /y scripts run_build
 xcopy /s /e /y tools run_build
 cd run_build
 python main.py

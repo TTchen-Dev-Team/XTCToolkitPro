@@ -9,6 +9,8 @@ from tkinter import filedialog
 
 import os
 
+import getcode
+
 style = Style.from_dict({
     'error': 'fg:ansired',
     'warning': 'fg:ansiyellow',
@@ -90,6 +92,8 @@ def tools():
         result = choice(message="",options=[
             ("scrcpy","传屏"),
             ("image","导入图片"),
+            ("getcode_zj","计算自检校验码"),
+            ("getcode_adb","计算ADB校验码[仅支持V2以下]"),
             ("exit","退出")])
         if result == "exit":
             break
@@ -124,6 +128,30 @@ def tools():
                 print()
                 print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
                 getch()
+        elif result == "getcode_zj":
+            os.system("cls")
+            print_formatted_text(HTML(info+"请输入要计算的校验码："), style=style, end="")
+            code = input()
+            new_code = getcode.get_code(code, "zj")
+            if new_code:
+                print_formatted_text(HTML(info+"动态校验码："+new_code), style=style, end="")
+            else:
+                print_formatted_text(HTML(error+"校验码格式错误！"), style=style)
+            print()
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+            getch()
+        elif result == "getcode_adb":
+            os.system("cls")
+            print_formatted_text(HTML(info+"请输入要计算的校验码："), style=style, end="")
+            code = input()
+            new_code = getcode.get_code(code, "adb")
+            if new_code:
+                print_formatted_text(HTML(info+"动态校验码："+new_code), style=style, end="")
+            else:
+                print_formatted_text(HTML(error+"校验码格式错误！"), style=style)
+            print()
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+            getch()
         else:
             os.system("cls")
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
@@ -202,9 +230,9 @@ def menu():
         elif result == "wifi":
             os.system("cls")
             print_formatted_text(HTML(info+"请输入IP地址："), style=style, end="")
-            adb_ip=input()
+            adb_ip = input()
             print_formatted_text(HTML(info+"请输入端口："), style=style, end="")
-            adb_port=input()
+            adb_port = input()
             os.system("adb connect "+adb_ip+":"+adb_port)
             print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
