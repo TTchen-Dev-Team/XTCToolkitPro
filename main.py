@@ -25,17 +25,18 @@ success = "<success>[DONE]</success>"
 info = "<info>[INFO]</info>"
 debug = "<debug>[DEBUG]</debug>"
 
-logo = """████████╗████████╗██╗    ██╗ █████╗ ████████╗ ██████╗██╗  ██╗██████╗  ██████╗ ██╗  ██╗
-╚══██╔══╝╚══██╔══╝██║    ██║██╔══██╗╚══██╔══╝██╔════╝██║  ██║██╔══██╗██╔═══██╗╚██╗██╔╝
-   ██║      ██║   ██║ █╗ ██║███████║   ██║   ██║     ███████║██████╔╝██║   ██║ ╚███╔╝
-   ██║      ██║   ██║███╗██║██╔══██║   ██║   ██║     ██╔══██║██╔══██╗██║   ██║ ██╔██╗ 
-   ██║      ██║   ╚███╔███╔╝██║  ██║   ██║   ╚██████╗██║  ██║██████╔╝╚██████╔╝██╔╝ ██╗
-   ╚═╝      ╚═╝    ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"""
+logo = """
+ __  _______ ____ _____           _ _    _ _   ____            
+ \ \/ /_   _/ ___|_   _|__   ___ | | | _(_) |_|  _ \ _ __ ___  
+  \  /  | || |     | |/ _ \ / _ \| | |/ / | __| |_) | '__/ _ \ 
+  /  \  | || |___  | | (_) | (_) | |   <| | |_|  __/| | | (_) |
+ /_/\_\ |_| \____| |_|\___/ \___/|_|_|\_\_|\__|_|   |_|  \___/ 
+                                                               """
 
 def pre_menu():
     os.system("cls")
     print_formatted_text(HTML(logo), style=style)
-    print_formatted_text(HTML(info+"欢迎来到TTWacthBox！"), style=style)
+    print_formatted_text(HTML(info+"欢迎来到XTCToolkitPro！"), style=style)
     print_formatted_text(HTML(info+"正在启动adb服务……"), style=style)
     if os.system("adb start-server"):
         print_formatted_text(HTML(error+"启动失败！"), style=style)
@@ -54,10 +55,10 @@ def about():
     os.system("cls")
     print_formatted_text(HTML(logo), style=style)
     print("="*50)
-    print("作者 TT_chen")
+    print("作者 TT_chen & 衍曲")
     print("TTchen Dev Team 开发")
     print("="*50)
-    print("开发版本 v0.1.8-alpha.2")
+    print("开发版本 v0.2.0-alpha.1")
     print("开发版本存在较多未知的bug，非开发人员请勿使用此版本！！！")
     print()
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键退出 &lt;</ansibrightblack>"), style=style, end='')
@@ -266,6 +267,6 @@ def menu():
             getch()
 
 if __name__ == "__main__":
-    os.system("title TTWatchBox by TTchen")
+    os.system("title XTCToolkitPro by TTchen & 衍曲")
     pre_menu()
     menu()
