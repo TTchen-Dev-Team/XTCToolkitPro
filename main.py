@@ -83,7 +83,7 @@ def about():
     print("作者 TT_chen & 衍曲")
     print("TTchen Dev Team 开发")
     print("="*50)
-    print("开发版本 v0.2.0-alpha.1")
+    print("开发版本 v0.2.2-alpha.1")
     print("开发版本存在较多未知的bug，非开发人员请勿使用此版本！！！")
     print()
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键退出 &lt;</ansibrightblack>"), style=style, end='')
@@ -283,6 +283,7 @@ def menu():
             ("links","链接合集"),
             ("more_menu","高级菜单"),
             ("wifi","无线连接[尝鲜版]"),
+            ("mods","模块商店"),
             ("debug","调试菜单"),
             ("exit","退出")])
         if result == "cmd":
