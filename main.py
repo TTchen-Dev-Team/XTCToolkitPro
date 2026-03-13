@@ -195,6 +195,7 @@ def apk_menu():
         print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
         result = choice(message="",options=[
             ("install","安装应用"),
+            ("installmodule","安装模块"),
             ("exit","退出")])
         if result == "exit":
             break
@@ -213,6 +214,28 @@ def apk_menu():
             root.destroy()
             if file_path:
                 if os.system("adb install \""+file_path+"\""):
+                    print_formatted_text(HTML(error+"安装失败！"), style=style)
+                else:
+                    print_formatted_text(HTML(success+"安装完成！"), style=style)
+                print()
+                print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+                getch()
+        elif result == "installmodule":
+            os.system("cls")
+            print_formatted_text(HTML(warning+"安装模块需谨慎，操作不可能导致设备变砖！！！"), style=style)
+            root = tk.Tk()
+            root.withdraw()
+            file_types = [
+                ("ZIP文件", "*.zip"),
+                ("所有文件", "*.*")
+            ]
+            file_path = filedialog.askopenfilename(
+                title="选择ZIP文件",
+                filetypes=file_types
+            )
+            root.destroy()
+            if file_path:
+                if os.system("instmodule \""+file_path+"\""):
                     print_formatted_text(HTML(error+"安装失败！"), style=style)
                 else:
                     print_formatted_text(HTML(success+"安装完成！"), style=style)
