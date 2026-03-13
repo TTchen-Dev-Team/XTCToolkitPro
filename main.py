@@ -68,7 +68,8 @@ def debug_menu():
     while True:
         os.system("cls")
         print_formatted_text(HTML(logo), style=style)
-        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
+        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
+        print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
         result = choice(message="",options=[
             ("color","色卡"),
             ("exit","退出")])
@@ -89,7 +90,8 @@ def tools():
     while True:
         os.system("cls")
         print_formatted_text(HTML(logo), style=style)
-        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
+        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
+        print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
         result = choice(message="",options=[
             ("scrcpy","传屏"),
             ("image","导入图片"),
@@ -164,7 +166,8 @@ def apk_menu():
     while True:
         os.system("cls")
         print_formatted_text(HTML(logo), style=style)
-        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
+        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
+        print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
         result = choice(message="",options=[
             ("install","安装应用"),
             ("exit","退出")])
@@ -202,7 +205,8 @@ def links():
     while True:
         os.system("cls")
         print_formatted_text(HTML(logo), style=style)
-        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
+        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
+        print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
         result = choice(message="",options=[
             ("0","超级恢复文件（来自ATB）"),
             ("1","应用合集"),
@@ -220,7 +224,8 @@ def menu():
     while True:
         os.system("cls")
         print_formatted_text(HTML(logo), style=style)
-        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
+        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
+        print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
         result = choice(message="",options=[
             ("root","一键root"),
             ("apks","应用与模块管理"),
