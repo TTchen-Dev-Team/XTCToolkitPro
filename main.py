@@ -81,7 +81,7 @@ def about():
     lolcat_simple(logo)
     print("="*50)
     print("作者 TT_chen & 衍曲")
-    print("TTchen Dev Team 开发")
+    print("XTCToolkitPro Team 开发")
     print("="*50)
     print("开发版本 v0.2.2-alpha.1")
     print("开发版本存在较多未知的bug，非开发人员请勿使用此版本！！！")
