@@ -23,6 +23,7 @@ xcopy /s /e /y tools main
 cd main
 python main.py
 cd ..
+exit /b
 :check
 echo 未检测到tools文件夹！
 echo 请下载adb调试工具和scrcpy至tools文件夹！
