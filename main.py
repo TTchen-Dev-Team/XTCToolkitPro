@@ -25,13 +25,13 @@ success = "<success>[DONE]</success>"
 info = "<info>[INFO]</info>"
 debug = "<debug>[DEBUG]</debug>"
 
-logo = """
+logo =r"""
  __  _______ ____ _____           _ _    _ _   ____            
  \ \/ /_   _/ ___|_   _|__   ___ | | | _(_) |_|  _ \ _ __ ___  
   \  /  | || |     | |/ _ \ / _ \| | |/ / | __| |_) | '__/ _ \ 
-  /  \  | || |___  | | (_) | (_) | |   <| | |_|  __/| | | (_) |
- /_/\_\ |_| \____| |_|\___/ \___/|_|_|\_\_|\__|_|   |_|  \___/ 
-                                                               """
+  /  \  | || |___  | | (_) | (_) | |   &lt;| | |_|  __/| | | (_) |
+ /_/\_\ |_| \____| |_|\___/ \___/|_|_|\_\_|\__|_|   |_|  \___/
+"""
 
 def pre_menu():
     os.system("cls")
@@ -267,6 +267,6 @@ def menu():
             getch()
 
 if __name__ == "__main__":
-    os.system("title XTCToolkitPro by TTchen & 衍曲")
+    os.system("title \"XTCToolkitPro by TTchen & 衍曲\"")
     pre_menu()
     menu()
