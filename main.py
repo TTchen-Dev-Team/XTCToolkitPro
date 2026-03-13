@@ -272,6 +272,6 @@ def menu():
             getch()
 
 if __name__ == "__main__":
-    os.system("title XTCToolkitPro by TTchen ^& 衍曲")
+    os.system("title XTCToolkitPro by 衍曲")
     pre_menu()
     menu()
