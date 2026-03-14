@@ -2,14 +2,14 @@
 chcp 65001
 
 set model=%1
-if "!model!" == "1" set innermodel=I20&goto FLASH-QMMI 
-if "!model!" == "2" set innermodel=I25&goto FLASH-QMMI
-if "!model!" == "3" set innermodel=I25C&goto FLASH-QMMI
-if "!model!" == "4" set innermodel=I25D&goto FLASH-QMMI
-if "!model!" == "5" set innermodel=I32&goto FLASH-QMMI
-if "!model!" == "6" set innermodel=ND07&goto FLASH-QMMI
-if "!model!" == "7" set innermodel=ND01&goto FLASH-QMMI
-if "!model!" == "8" set innermodel=ND03&goto FLASH-QMMI-S
+if "%model%" == "1" set innermodel=I20&goto FLASH-QMMI 
+if "%model%" == "2" set innermodel=I25&goto FLASH-QMMI
+if "%model%" == "3" set innermodel=I25C&goto FLASH-QMMI
+if "%model%" == "4" set innermodel=I25D&goto FLASH-QMMI
+if "%model%" == "5" set innermodel=I32&goto FLASH-QMMI
+if "%model%" == "6" set innermodel=ND07&goto FLASH-QMMI
+if "%model%" == "7" set innermodel=ND01&goto FLASH-QMMI
+if "%model%" == "8" set innermodel=ND03&goto FLASH-QMMI-S
 
 :FLASH-QMMI
 call INFO 您的机型: %innermodel%
