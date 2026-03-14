@@ -115,6 +115,28 @@ def debug_menu():
             break
     os.system("cls")
 
+def qmmi():
+    while True:
+        os.system("cls")
+        lolcat_simple(logo)
+        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
+        print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
+        result = choice(message="",options=[
+            ("1","Z6DFB"),
+            ("2","Z7"),
+            ("3","Z7A"),
+            ("4","Z7S"),
+            ("5","Z8"),
+            ("6","Z8A"),
+            ("7","Z9"),
+            ("8","Z10")
+            ("exit","退出")])
+        if result == "exit":
+            break
+        else:
+            os.system("cls")
+            os.system("qmmi "+result)
+
 def tools():
     while True:
         os.system("cls")
@@ -127,6 +149,7 @@ def tools():
             ("vedio","导入视频"),
             ("getcode_zj","计算自检校验码"),
             ("getcode_adb","计算ADB校验码[仅支持V2以下]"),
+            ("qmmi","进入qmmi"),
             ("exit","退出")])
         if result == "exit":
             break
