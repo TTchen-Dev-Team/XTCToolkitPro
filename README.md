@@ -11,8 +11,8 @@
 接下来请按如下步骤部署：
 1. 克隆仓库：
 ```bash
-git clone https://github.com/TTchen-Dev-Team/XTCToolkitPro.git
-cd XTCToolkitPro
+git clone https://github.com/TTWatchBox-Team/TTWatchBox.git
+cd TTWatchBox
 ```
 2. 创建并进入虚拟环境
 ```bash
