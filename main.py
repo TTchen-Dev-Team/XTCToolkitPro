@@ -211,7 +211,7 @@ def tools():
             print_formatted_text(HTML(info+"请输入视频链接："), style=style, end="")
             link = input()
             if link:
-                if os.system("you-get -o vedio -O vedio.mp4 "+link+" && adb push vedio/vedio.mp4 /storage/emulated/0/DCIM/Video/TTWatchBox"+str(random.randint(11111,99999))+".mp4"):
+                if os.system("you-get -o vedio -O vedio "+link+" && adb push vedio/vedio.mp4 /storage/emulated/0/DCIM/Video/TTWatchBox"+str(random.randint(11111,99999))+".mp4"):
                     print_formatted_text(HTML(error+"传入失败！"), style=style)
                 else:
                     print_formatted_text(HTML(success+"传入完成！"), style=style)
