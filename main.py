@@ -333,6 +333,37 @@ def links():
         else:
             os.system("start "+links_list[int(result)])
 
+def dev_tools():
+    while True:
+        os.system("cls")
+        lolcat_simple(logo)
+        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
+        print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
+        result = choice(message="",options=[
+            ("Z10_2.8.1","Z10刷入2.8.1固件"),
+            ("exit","退出")])
+        if result == "exit":
+            break
+        elif result == "Z10_2.8.1":
+            os.system("cls")
+            print_formatted_text(HTML(info+"请接入要刷写9008的设备……"), style=style)
+            os.system("device_check 9008")
+            print_formatted_text(HTML(info+"开始刷入……"), style=style)
+            if os.system("ND03_2.8.1"):
+                print_formatted_text(HTML(error+"刷入失败！"), style=style)
+            else:
+                print_formatted_text(HTML(success+"刷入完成！"), style=style)
+                print_formatted_text(HTML(warning+"如果你的手表原版本>2.8.1，请不要开机，立刻使用“一键root”功能，否则会被xse！"), style=style)
+            print()
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+            getch()
+        else:
+            os.system("cls")
+            print_formatted_text(HTML(warning+"功能开发中！"), style=style)
+            print()
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+            getch()
+
 def menu():
     while True:
         os.system("cls")
