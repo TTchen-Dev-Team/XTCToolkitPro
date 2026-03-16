@@ -2,7 +2,7 @@ from msvcrt import getch
 
 from prompt_toolkit import print_formatted_text, HTML
 from prompt_toolkit.styles import Style
-from prompt_toolkit.shortcuts import choice
+from prompt_toolkit.shortcuts import choice, clear
 
 import tkinter as tk
 from tkinter import filedialog
@@ -28,7 +28,7 @@ info = "<info>[INFO]</info>"
 debug = "<debug>[DEBUG]</debug>"
 
 def pre_menu():
-    os.system("cls")
+    clear()
     os.system("lolcat logo.txt")
     print_formatted_text(HTML(info+"欢迎来到TTWatchBox！"), style=style)
     print_formatted_text(HTML(info+"正在启动adb服务……"), style=style)
@@ -46,7 +46,7 @@ def pre_menu():
     getch()
 
 def about():
-    os.system("cls")
+    clear()
     os.system("lolcat logo.txt")
     print("="*50)
     print("作者 TT_chen")
@@ -60,7 +60,7 @@ def about():
 
 def debug_menu():
     while True:
-        os.system("cls")
+        clear()
         os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
@@ -68,7 +68,7 @@ def debug_menu():
             ("color","色卡"),
             ("exit","退出")])
         if result == "color":
-            os.system("cls")
+            clear()
             print_formatted_text(HTML(info+"信息"), style=style)
             print_formatted_text(HTML(warning+"警告"), style=style)
             print_formatted_text(HTML(error+"错误"), style=style)
@@ -78,12 +78,12 @@ def debug_menu():
             getch()
         elif result == "exit":
             break
-    os.system("cls")
+    clear()
 
 """
 def qmmi():
     while True:
-        os.system("cls")
+        clear()
         os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
@@ -100,13 +100,13 @@ def qmmi():
         if result == "exit":
             break
         else:
-            os.system("cls")
+            clear()
             os.system("qmmi "+result)
 """
 
 def tools():
     while True:
-        os.system("cls")
+        clear()
         os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
@@ -121,7 +121,7 @@ def tools():
         if result == "exit":
             break
         elif result == "scrcpy":
-            os.system("cls")
+            clear()
             print_formatted_text(HTML(info+"正在打开传屏……"), style=style)
             if os.system("scrcpy"):
                 print_formatted_text(HTML(error+"传屏失败！"), style=style)
@@ -131,7 +131,7 @@ def tools():
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
         elif result == "image":
-            os.system("cls")
+            clear()
             root = tk.Tk()
             root.withdraw()
             file_types = [
@@ -152,7 +152,7 @@ def tools():
                 print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
                 getch()
         elif result == "vedio":
-            os.system("cls")
+            clear()
             root = tk.Tk()
             root.withdraw()
             file_types = [
@@ -173,7 +173,7 @@ def tools():
                 print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
                 getch()
         elif result == "getcode_zj":
-            os.system("cls")
+            clear()
             print_formatted_text(HTML(info+"请输入要计算的校验码："), style=style, end="")
             code = input()
             new_code = getcode.get_code(code, "zj")
@@ -185,7 +185,7 @@ def tools():
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
         elif result == "getcode_adb":
-            os.system("cls")
+            clear()
             print_formatted_text(HTML(info+"请输入要计算的校验码："), style=style, end="")
             code = input()
             new_code = getcode.get_code(code, "adb")
@@ -200,7 +200,7 @@ def tools():
         elif result == "qmmi":
             qmmi()"""
         else:
-            os.system("cls")
+            clear()
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
             print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
@@ -208,7 +208,7 @@ def tools():
 
 def apk_menu():
     while True:
-        os.system("cls")
+        clear()
         os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
@@ -219,7 +219,7 @@ def apk_menu():
         if result == "exit":
             break
         elif result == "install":
-            os.system("cls")
+            clear()
             root = tk.Tk()
             root.withdraw()
             file_types = [
@@ -240,7 +240,7 @@ def apk_menu():
                 print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
                 getch()
         elif result == "installmodule":
-            os.system("cls")
+            clear()
             print_formatted_text(HTML(warning+"安装模块需谨慎，操作不可能导致设备变砖！！！"), style=style)
             root = tk.Tk()
             root.withdraw()
@@ -262,7 +262,7 @@ def apk_menu():
                 print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
                 getch()
         else:
-            os.system("cls")
+            clear()
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
             print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
@@ -270,7 +270,7 @@ def apk_menu():
 
 def links():
     while True:
-        os.system("cls")
+        clear()
         os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
@@ -289,7 +289,7 @@ def links():
 
 def menu():
     while True:
-        os.system("cls")
+        clear()
         os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
@@ -306,13 +306,14 @@ def menu():
             ("debug","调试菜单"),
             ("exit","退出")])
         if result == "cmd":
-            os.system("cls")
+            clear()
             print_formatted_text(HTML(info+"已进入cmd，输入exit退出"), style=style)
             os.system("set \"PROMPT=(TTWatchBox) %PROMPT%\" && cmd")
         elif result == "about":
             about()
         elif result == "exit":
-            os.system("cls && adb kill-server")
+            clear()
+            os.system("adb kill-server")
             break
         elif result == "debug":
             debug_menu()
@@ -321,7 +322,7 @@ def menu():
         elif result == "apks":
             apk_menu()
         elif result == "wifi":
-            os.system("cls")
+            clear()
             print_formatted_text(HTML(info+"请输入IP地址："), style=style, end="")
             adb_ip = input()
             print_formatted_text(HTML(info+"请输入端口："), style=style, end="")
@@ -333,7 +334,7 @@ def menu():
         elif result == "links":
             links()
         else:
-            os.system("cls")
+            clear()
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
             print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
