@@ -27,42 +27,9 @@ success = "<success>[DONE]</success>"
 info = "<info>[INFO]</info>"
 debug = "<debug>[DEBUG]</debug>"
 
-logo =r"""
-  _____ _______        __    _       _     ____            
- |_   _|_   _\ \      / /_ _| |_ ___| |__ | __ )  _____  __
-   | |   | |  \ \ /\ / / _` | __/ __| '_ \|  _ \ / _ \ \/ /
-   | |   | |   \ V  V / (_| | || (__| | | | |_) | (_) >  < 
-   |_|   |_|    \_/\_/ \__,_|\__\___|_| |_|____/ \___/_/\_\
-"""
-
-def lolcat_simple(text):
-    colors = [
-        '#ff0000',  # 红
-        '#ff7700',  # 橙
-        '#ffff00',  # 黄
-        '#00ff00',  # 绿
-        '#0000ff',  # 蓝
-        '#4b0082',  # 靛
-        '#9400d3'   # 紫
-    ]
-    style_dict = {}
-    html_parts = ""
-    for i, char in enumerate(text):
-        color_index = i % len(colors)
-        class_name = f'color_{i}'
-        style_dict[class_name] = f'fg:{colors[color_index]}'
-        if char == "<":
-            char = "&lt;"
-        if char == ">":
-            char = "&gt;"
-        html_parts += f'<{class_name}>{char}</{class_name}>'
-    style = Style.from_dict(style_dict)
-    print_formatted_text(HTML(html_parts), style=style, end='', flush=True)
-    print()
-
 def pre_menu():
     os.system("cls")
-    lolcat_simple(logo)
+    os.system("lolcat logo.txt")
     print_formatted_text(HTML(info+"欢迎来到TTWatchBox！"), style=style)
     print_formatted_text(HTML(info+"正在启动adb服务……"), style=style)
     if os.system("adb start-server"):
@@ -80,7 +47,7 @@ def pre_menu():
 
 def about():
     os.system("cls")
-    lolcat_simple(logo)
+    os.system("lolcat logo.txt")
     print("="*50)
     print("作者 TT_chen")
     print("TTWatchBox Team 开发")
@@ -94,7 +61,7 @@ def about():
 def debug_menu():
     while True:
         os.system("cls")
-        lolcat_simple(logo)
+        os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
         result = choice(message="",options=[
@@ -117,7 +84,7 @@ def debug_menu():
 def qmmi():
     while True:
         os.system("cls")
-        lolcat_simple(logo)
+        os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
         result = choice(message="",options=[
@@ -140,7 +107,7 @@ def qmmi():
 def tools():
     while True:
         os.system("cls")
-        lolcat_simple(logo)
+        os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
         result = choice(message="",options=[
@@ -242,7 +209,7 @@ def tools():
 def apk_menu():
     while True:
         os.system("cls")
-        lolcat_simple(logo)
+        os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
         result = choice(message="",options=[
@@ -304,7 +271,7 @@ def apk_menu():
 def links():
     while True:
         os.system("cls")
-        lolcat_simple(logo)
+        os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
         result = choice(message="",options=[
@@ -323,7 +290,7 @@ def links():
 def menu():
     while True:
         os.system("cls")
-        lolcat_simple(logo)
+        os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
         result = choice(message="",options=[
