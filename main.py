@@ -63,7 +63,7 @@ def debug_menu():
         os.system("cls")
         os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
-        print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
+        print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
         result = choice(message="",options=[
             ("color","色卡"),
             ("exit","退出")])
@@ -86,7 +86,7 @@ def qmmi():
         os.system("cls")
         os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
-        print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
+        print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
         result = choice(message="",options=[
             ("1","Z6DFB"),
             ("2","Z7"),
@@ -109,7 +109,7 @@ def tools():
         os.system("cls")
         os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
-        print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
+        print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
         result = choice(message="",options=[
             ("scrcpy","传屏"),
             ("image","导入图片"),
@@ -211,7 +211,7 @@ def apk_menu():
         os.system("cls")
         os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
-        print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
+        print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
         result = choice(message="",options=[
             ("install","安装应用"),
             ("installmodule","安装模块"),
@@ -273,7 +273,7 @@ def links():
         os.system("cls")
         os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
-        print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
+        print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
         result = choice(message="",options=[
             ("0","超级恢复文件（来自ATB）"),
             ("1","应用合集"),
@@ -292,7 +292,7 @@ def menu():
         os.system("cls")
         os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
-        print_formatted_text(HTML(info+"- 不被定义，才能创造定义 -"), style=style, end='')
+        print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
         result = choice(message="",options=[
             ("root","一键root"),
             ("apks","应用与模块管理"),
