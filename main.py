@@ -7,6 +7,8 @@ from prompt_toolkit.shortcuts import choice, clear
 import tkinter as tk
 from tkinter import filedialog
 
+import sys
+
 import os
 
 import getcode
