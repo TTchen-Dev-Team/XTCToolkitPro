@@ -277,12 +277,14 @@ def links():
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
         result = choice(message="",options=[
-            ("0","超级恢复文件（来自ATB）"),
+            ("0","超级恢复文件"),
             ("1","应用合集"),
+            ("2","早茶の网盘备份")
             ("exit","退出")])
         links_list=[
             "https://www.123865.com/s/Q5JfTd-hEbWH",
-            "https://www.123684.com/s/Q5JfTd-ZEbWH"
+            "https://www.123684.com/s/Q5JfTd-ZEbWH",
+            "https://www.123865.com/s/nFXhvd-Fdpod"
         ]
         if result == "exit":
             break
