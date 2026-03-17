@@ -13,6 +13,8 @@ import os
 
 import getcode
 
+from nd03root import one_key_root, flash_firmware, run_twrp, check_devices
+
 import random
 
 style = Style.from_dict({
@@ -60,7 +62,7 @@ def root():
             ("nd03root","Z10 root[by 雪精灵]"),
             ("exit","退出")])
         if result == "nd03root":
-            pass
+            one_key_root()
         elif result == "exit":
             break
     clear()
