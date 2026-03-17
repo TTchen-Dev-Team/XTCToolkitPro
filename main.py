@@ -355,6 +355,8 @@ def menu():
             getch()
         elif result == "links":
             links()
+        elif result == "root":
+            root()
         else:
             clear()
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
