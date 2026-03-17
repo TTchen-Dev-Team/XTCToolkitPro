@@ -57,7 +57,7 @@ def root():
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
         result = choice(message="",options=[
-            ("nd03root","Z10root[by 雪精灵]"),
+            ("nd03root","Z10 root[by 雪精灵]"),
             ("exit","退出")])
         if result == "nd03root":
             pass
