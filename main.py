@@ -2,7 +2,7 @@ from msvcrt import getch
 
 from prompt_toolkit import print_formatted_text, HTML
 from prompt_toolkit.styles import Style
-from prompt_toolkit.shortcuts import choice, clear
+from prompt_toolkit.shortcuts import choice
 
 import tkinter as tk
 from tkinter import filedialog
@@ -28,6 +28,9 @@ warning = "<warning>[WARN]</warning>"
 success = "<success>[DONE]</success>"
 info = "<info>[INFO]</info>"
 debug = "<debug>[DEBUG]</debug>"
+
+def clear():
+    os.system("cls")
 
 def pre_menu():
     clear()
@@ -279,7 +282,7 @@ def links():
         result = choice(message="",options=[
             ("0","超级恢复文件"),
             ("1","应用合集"),
-            ("2","早茶の网盘备份")
+            ("2","早茶の网盘备份"),
             ("exit","退出")])
         links_list=[
             "https://www.123865.com/s/Q5JfTd-hEbWH",
