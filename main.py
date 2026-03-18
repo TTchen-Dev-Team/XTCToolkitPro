@@ -332,7 +332,7 @@ def menu():
         clear()
         print_formatted_text(HTML(warning+"检测到用户中断，正在安全退出程序……"), style=style)
         os.system("adb kill-server")
-        print_formatted_text(HTML(warning+"退出成功！"), style=style)
+        print_formatted_text(HTML(info+"退出成功！"), style=style)
 
 if __name__ == "__main__":
     os.system("title TTWatchBox by TTchen")
