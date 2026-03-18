@@ -79,7 +79,13 @@ def debug_menu():
             print_formatted_text(HTML(warning+"警告"), style=style)
             print_formatted_text(HTML(error+"错误"), style=style)
             print_formatted_text(HTML(success+"成功"), style=style)
+            print_formatted_text(HTML(debug+"调试"), style=style)
             print()
+            os.system("INFO bat信息")
+            os.system("WARN bat警告")
+            os.system("ERROR bat错误")
+            os.system("DONE bat成功")
+            os.system("DEBUG bat调试")
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
         elif result == "exit":
