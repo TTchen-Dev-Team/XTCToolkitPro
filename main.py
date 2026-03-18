@@ -150,7 +150,7 @@ def tools():
             )
             root.destroy()
             if file_path:
-                if os.system("adb push \""+file_path+"\" /storage/emulated/0/DCIM/Camera"):
+                if os.system("adb wait-for-device push \""+file_path+"\" /storage/emulated/0/DCIM/Camera"):
                     print_formatted_text(HTML(error+"传入失败！"), style=style)
                 else:
                     print_formatted_text(HTML(success+"传入完成！"), style=style)
@@ -171,7 +171,7 @@ def tools():
             )
             root.destroy()
             if file_path:
-                if os.system("adb push \""+file_path+"\" /storage/emulated/0/DCIM/Video/TTWatchBox"+str(random.randint(11111,99999))+".mp4"):
+                if os.system("adb wait-for-device push \""+file_path+"\" /storage/emulated/0/DCIM/Video/TTWatchBox"+str(random.randint(11111,99999))+".mp4"):
                     print_formatted_text(HTML(error+"传入失败！"), style=style)
                 else:
                     print_formatted_text(HTML(success+"传入完成！"), style=style)
@@ -238,7 +238,7 @@ def apk_menu():
             )
             root.destroy()
             if file_path:
-                if os.system("adb install \""+file_path+"\""):
+                if os.system("adb wait-for-device install \""+file_path+"\""):
                     print_formatted_text(HTML(error+"安装失败！"), style=style)
                 else:
                     print_formatted_text(HTML(success+"安装完成！"), style=style)
