@@ -12,8 +12,9 @@ if not exist .run (
 )
 :start
 echo.>.run
-echo 正在复制文件
+echo 正在尝试结束adb服务……
 main\adb.exe kill-server 2>nul
+echo 正在复制文件
 rd /s /q main 2>nul
 mkdir main
 copy main.py main\main.py
