@@ -230,7 +230,7 @@ def apk_menu():
                 getch()
         elif result == "installmodule":
             clear()
-            print_formatted_text(HTML(warning+"安装模块需谨慎，操作不可能导致设备变砖！！！"), style=style)
+            print_formatted_text(HTML(warning+"安装模块需谨慎，操作不慎可能导致设备变砖！！！"), style=style)
             root = tk.Tk()
             root.withdraw()
             file_types = [
