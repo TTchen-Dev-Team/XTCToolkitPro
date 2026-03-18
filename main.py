@@ -86,6 +86,7 @@ def debug_menu():
             os.system("ERROR bat错误")
             os.system("DONE bat成功")
             os.system("DEBUG bat调试")
+            print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
         elif result == "exit":
