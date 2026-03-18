@@ -20,7 +20,7 @@ style = Style.from_dict({
     'warning': 'fg:ansiyellow',
     'success': 'fg:ansigreen',
     'info': 'fg:ansiblue',
-    'debug': 'fg:violet'
+    'debug': 'fg:ansipurple'
 })
 
 error = "<error>[ERROR]</error>"
