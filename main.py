@@ -93,30 +93,6 @@ def debug_menu():
             break
     clear()
 
-"""
-def qmmi():
-    while True:
-        clear()
-        os.system("lolcat logo.txt")
-        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
-        print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
-        result = choice(message="",options=[
-            ("1","Z6DFB"),
-            ("2","Z7"),
-            ("3","Z7A"),
-            ("4","Z7S"),
-            ("5","Z8"),
-            ("6","Z8A"),
-            ("7","Z9"),
-            ("8","Z10"),
-            ("exit","退出")])
-        if result == "exit":
-            break
-        else:
-            clear()
-            os.system("qmmi "+result)
-"""
-
 def tools():
     while True:
         clear()
@@ -267,10 +243,7 @@ def apk_menu():
             )
             root.destroy()
             if file_path:
-                if os.system("instmodule \""+file_path+"\""):
-                    print_formatted_text(HTML(error+"安装失败！"), style=style)
-                else:
-                    print_formatted_text(HTML(success+"安装完成！"), style=style)
+                os.system("device_check adb && instmodule \""+file_path+"\"")
                 print()
                 print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
                 getch()
