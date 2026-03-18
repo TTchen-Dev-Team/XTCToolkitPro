@@ -13,8 +13,6 @@ import os
 
 import getcode
 
-from nd03root import one_key_root, flash_firmware, run_twrp, check_devices
-
 import random
 
 style = Style.from_dict({
@@ -51,21 +49,6 @@ def pre_menu():
     print()
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键进入 &lt;</ansibrightblack>"), style=style, end='')
     getch()
-
-def root():
-    while True:
-        clear()
-        os.system("lolcat logo.txt")
-        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
-        print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
-        result = choice(message="",options=[
-            ("nd03root","Z10 root[by 雪精灵]"),
-            ("exit","退出")])
-        if result == "nd03root":
-            one_key_root()
-        elif result == "exit":
-            break
-    clear()
 
 def about():
     clear()
@@ -358,8 +341,6 @@ def menu():
             getch()
         elif result == "links":
             links()
-        elif result == "root":
-            root()
         else:
             clear()
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
