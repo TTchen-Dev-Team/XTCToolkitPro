@@ -17,8 +17,10 @@ import random
 
 import requests
 
-version = "0.2.5-alpha.1"
+version = "v0.2.5-alpha.1"
 version_short = "0.2.5a1"
+
+debug = True
 
 style = Style.from_dict({
     'error': 'fg:ansired',
@@ -56,7 +58,8 @@ def pre_menu():
         print_formatted_text(HTML(success+"启动完成！"), style=style)
     check_update()
     print_formatted_text(HTML(warning+"你现在正在使用开发版本"), style=style)
-    print_formatted_text(HTML(warning+"调试模式已开启！"), style=style)
+    if debug:
+        print_formatted_text(HTML(warning+"调试模式已开启！"), style=style)
     print_formatted_text(HTML(warning+"关于版权：由于玩机工具或多或少都会涉及版权问题，因此本工具仅供技术交流，请不要商用，下载后24小时删除！"), style=style)
     print_formatted_text(HTML(warning+"关于版权：如果您实在觉得我们严重侵犯了您的版权，请立刻联系作者整改删除"), style=style)
     print_formatted_text(HTML(warning+"关于解绑：本工具不提供任何解绑服务，如果您捡到了手表，请立刻联系当地110机关归还原主"), style=style)
@@ -294,7 +297,7 @@ def menu():
         os.system("lolcat logo.txt")
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
         print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
-        result = choice(message="",options=[
+        options=[
             ("root","一键root"),
             ("apks","应用与模块管理"),
             ("cmd","在此处打开cmd[含adb调试环境]"),
@@ -304,8 +307,11 @@ def menu():
             ("dev_tools","高级菜单"),
             ("wifi","无线连接[尝鲜版]"),
             ("mods","模块商店"),
-            ("debug","调试菜单"),
-            ("exit","退出")])
+            ("check_update","检测更新"),
+            ("exit","退出")]
+        if debug:
+            options.append(("debug","调试菜单"))
+        result = choice(message="",options=options)
         if result == "cmd":
             clear()
             print_formatted_text(HTML(info+"已进入cmd，输入exit退出"), style=style)
@@ -334,6 +340,12 @@ def menu():
             getch()
         elif result == "links":
             links()
+        elif result == "check_update":
+            clear()
+            check_update()
+            print()
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+            getch()
         else:
             clear()
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
