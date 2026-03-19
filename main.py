@@ -15,6 +15,9 @@ import getcode
 
 import random
 
+version = "0.2.5-alpha.1"
+version_short = "0.2.5a1"
+
 style = Style.from_dict({
     'error': 'fg:ansired',
     'warning': 'fg:ansiyellow',
@@ -57,9 +60,8 @@ def about():
     print("作者 TT_chen")
     print("TTWatchBox Team 开发")
     print("="*50)
-    print("开发版本 v0.2.5-alpha.1")
+    print("开发版本 "+version)
     print("开发版本存在较多未知的bug，非开发人员请勿使用此版本！！！")
-    print("本版本bug比一般开发版本更多，请谨慎使用！！！")
     print()
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键退出 &lt;</ansibrightblack>"), style=style, end='')
     getch()
@@ -335,6 +337,6 @@ def menu():
         print_formatted_text(HTML(info+"退出成功！"), style=style)
 
 if __name__ == "__main__":
-    os.system("title TTWatchBox by TTchen")
+    os.system("title TTWatchBox"+version_short+" by TTchen")
     pre_menu()
     menu()
