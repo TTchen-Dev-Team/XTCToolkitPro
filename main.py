@@ -289,67 +289,68 @@ def links():
             os.system("start "+links_list[int(result)])
 
 def menu():
-    try:
-        while True:
+    while True:
+        clear()
+        os.system("lolcat logo.txt")
+        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
+        print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
+        result = choice(message="",options=[
+            ("root","一键root"),
+            ("apks","应用与模块管理"),
+            ("cmd","在此处打开cmd[含adb调试环境]"),
+            ("about","关于脚本"),
+            ("tools","常用工具"),
+            ("links","链接合集"),
+            ("dev_tools","高级菜单"),
+            ("wifi","无线连接[尝鲜版]"),
+            ("mods","模块商店"),
+            ("debug","调试菜单"),
+            ("exit","退出")])
+        if result == "cmd":
             clear()
-            os.system("lolcat logo.txt")
-            print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style)
-            print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
-            result = choice(message="",options=[
-                ("root","一键root"),
-                ("apks","应用与模块管理"),
-                ("cmd","在此处打开cmd[含adb调试环境]"),
-                ("about","关于脚本"),
-                ("tools","常用工具"),
-                ("links","链接合集"),
-                ("dev_tools","高级菜单"),
-                ("wifi","无线连接[尝鲜版]"),
-                ("mods","模块商店"),
-                ("debug","调试菜单"),
-                ("exit","退出")])
-            if result == "cmd":
-                clear()
-                print_formatted_text(HTML(info+"已进入cmd，输入exit退出"), style=style)
-                os.system("set \"PROMPT=(TTWatchBox) %PROMPT%\" && cmd")
-            elif result == "about":
-                about()
-            elif result == "exit":
-                clear()
-                os.system("adb kill-server")
-                break
-            elif result == "debug":
-                debug_menu()
-            elif result == "tools":
-                tools()
-            elif result == "apks":
-                apk_menu()
-            elif result == "wifi":
-                clear()
-                print_formatted_text(HTML(info+"请输入IP地址："), style=style, end="")
-                adb_ip = input()
-                print_formatted_text(HTML(info+"请输入端口："), style=style, end="")
-                adb_port = input()
-                os.system("adb connect "+adb_ip+":"+adb_port)
-                print()
-                print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
-                getch()
-            elif result == "links":
-                links()
-            else:
-                clear()
-                print_formatted_text(HTML(warning+"功能开发中！"), style=style)
-                print()
-                print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
-                getch()
+            print_formatted_text(HTML(info+"已进入cmd，输入exit退出"), style=style)
+            os.system("set \"PROMPT=(TTWatchBox) %PROMPT%\" && cmd")
+        elif result == "about":
+            about()
+        elif result == "exit":
+            clear()
+            os.system("adb kill-server")
+            break
+        elif result == "debug":
+            debug_menu()
+        elif result == "tools":
+            tools()
+        elif result == "apks":
+            apk_menu()
+        elif result == "wifi":
+            clear()
+            print_formatted_text(HTML(info+"请输入IP地址："), style=style, end="")
+            adb_ip = input()
+            print_formatted_text(HTML(info+"请输入端口："), style=style, end="")
+            adb_port = input()
+            os.system("adb connect "+adb_ip+":"+adb_port)
+            print()
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+            getch()
+        elif result == "links":
+            links()
+        else:
+            clear()
+            print_formatted_text(HTML(warning+"功能开发中！"), style=style)
+            print()
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+            getch()
+
+if __name__ == "__main__":
+    try:
+        os.system("title TTWatchBox"+version_short+" by TTchen")
+        pre_menu()
+        menu()
     except KeyboardInterrupt:
         clear()
         print_formatted_text(HTML(warning+"检测到用户中断，正在安全退出程序……"), style=style)
         os.system("adb kill-server")
         print_formatted_text(HTML(info+"退出成功！"), style=style)
     except Exception as e:
+        clear()
         print_formatted_text(HTML(error+f"程序出现错误！错误原因：{e}，请立刻反馈于开发者！！！"), style=style)
-
-if __name__ == "__main__":
-    os.system("title TTWatchBox"+version_short+" by TTchen")
-    pre_menu()
-    menu()
