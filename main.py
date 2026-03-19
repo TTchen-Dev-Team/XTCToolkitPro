@@ -1,8 +1,10 @@
 from msvcrt import getch
 
-from prompt_toolkit import print_formatted_text, HTML
+from prompt_toolkit import print_formatted_text, HTML, prompt
+from prompt_toolkit.history import FileHistory
 from prompt_toolkit.styles import Style
 from prompt_toolkit.shortcuts import choice
+from prompt_toolkit.auto_suggest import AutoSuggestFromHistory
 
 import tkinter as tk
 from tkinter import filedialog
@@ -338,10 +340,8 @@ def menu():
             apk_menu()
         elif result == "wifi":
             clear()
-            print_formatted_text(HTML(info+"请输入IP地址："), style=style, end="")
-            adb_ip = input()
-            print_formatted_text(HTML(info+"请输入端口："), style=style, end="")
-            adb_port = input()
+            adb_ip = prompt("请输入IP地址：", history=FileHistory('history_ip.txt'), auto_suggest=AutoSuggestFromHistory())
+            adb_port = prompt("请输入端口：", history=FileHistory('history_port.txt'), auto_suggest=AutoSuggestFromHistory())
             os.system("adb connect "+adb_ip+":"+adb_port)
             print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
