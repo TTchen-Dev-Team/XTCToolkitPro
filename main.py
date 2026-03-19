@@ -59,7 +59,7 @@ def pre_menu():
     check_update()
     print_formatted_text(HTML(warning+"你现在正在使用开发版本"), style=style)
     if debug_mode:
-        print_formatted_text(HTML(warning+"调试模式已开启！"), style=style)
+        print_formatted_text(HTML(debug+"调试模式已开启！"), style=style)
     print_formatted_text(HTML(warning+"关于版权：由于玩机工具或多或少都会涉及版权问题，因此本工具仅供技术交流，请不要商用，下载后24小时删除！"), style=style)
     print_formatted_text(HTML(warning+"关于版权：如果您实在觉得我们严重侵犯了您的版权，请立刻联系作者整改删除"), style=style)
     print_formatted_text(HTML(warning+"关于解绑：本工具不提供任何解绑服务，如果您捡到了手表，请立刻联系当地110机关归还原主"), style=style)
