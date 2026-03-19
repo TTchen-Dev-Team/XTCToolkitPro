@@ -20,7 +20,7 @@ import requests
 version = "v0.2.5-alpha.1"
 version_short = "0.2.5a1"
 
-debug = True
+debug_mode = True
 
 style = Style.from_dict({
     'error': 'fg:ansired',
@@ -58,7 +58,7 @@ def pre_menu():
         print_formatted_text(HTML(success+"启动完成！"), style=style)
     check_update()
     print_formatted_text(HTML(warning+"你现在正在使用开发版本"), style=style)
-    if debug:
+    if debug_mode:
         print_formatted_text(HTML(warning+"调试模式已开启！"), style=style)
     print_formatted_text(HTML(warning+"关于版权：由于玩机工具或多或少都会涉及版权问题，因此本工具仅供技术交流，请不要商用，下载后24小时删除！"), style=style)
     print_formatted_text(HTML(warning+"关于版权：如果您实在觉得我们严重侵犯了您的版权，请立刻联系作者整改删除"), style=style)
@@ -309,7 +309,7 @@ def menu():
             ("mods","模块商店"),
             ("check_update","检测更新"),
             ("exit","退出")]
-        if debug:
+        if debug_mode:
             options.append(("debug","调试菜单"))
         result = choice(message="",options=options)
         if result == "cmd":
