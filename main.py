@@ -37,6 +37,14 @@ debug = "<debug>[DEBUG]</debug>"
 def clear():
     os.system("cls")
 
+def check_update():
+    print_formatted_text(HTML(info+"正在检测更新……"), style=style)
+    try:
+        response = requests.get("https://api.github.com/repos/TTWatchBox-Team/TTWatchBox/releases/latest")
+        print_formatted_text(HTML(info+"云端版本："+response.json()["tag_name"]), style=style)
+    except Exception as e:
+        print_formatted_text(HTML(error+f"检测更新失败！错误原因：{e}！"), style=style)
+
 def pre_menu():
     clear()
     os.system("lolcat logo.txt")
@@ -46,6 +54,7 @@ def pre_menu():
         print_formatted_text(HTML(error+"启动失败！"), style=style)
     else:
         print_formatted_text(HTML(success+"启动完成！"), style=style)
+    check_update()
     print_formatted_text(HTML(warning+"你现在正在使用开发版本"), style=style)
     print_formatted_text(HTML(warning+"调试模式已开启！"), style=style)
     print_formatted_text(HTML(warning+"关于版权：由于玩机工具或多或少都会涉及版权问题，因此本工具仅供技术交流，请不要商用，下载后24小时删除！"), style=style)
@@ -337,6 +346,8 @@ def menu():
         print_formatted_text(HTML(warning+"检测到用户中断，正在安全退出程序……"), style=style)
         os.system("adb kill-server")
         print_formatted_text(HTML(info+"退出成功！"), style=style)
+    except Exception as e:
+        print_formatted_text(HTML(error+f"程序出现错误！错误原因：{e}，请立刻反馈于开发者！！！"), style=style)
 
 if __name__ == "__main__":
     os.system("title TTWatchBox"+version_short+" by TTchen")
