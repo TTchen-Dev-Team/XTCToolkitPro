@@ -17,8 +17,8 @@ import random
 
 import requests
 
-version = "v0.2.5-alpha.1"
-version_short = "0.2.5a1"
+version = "v0.2.5-alpha.2"
+version_short = "0.2.5a2"
 
 debug_mode = True
 
@@ -84,6 +84,7 @@ def about():
     getch()
 
 def debug_menu():
+    global debug_mode
     while True:
         clear()
         os.system("lolcat logo.txt")
@@ -91,6 +92,7 @@ def debug_menu():
         print_formatted_text(HTML(info+"- 自由，从每一次突破开始 -"), style=style, end='')
         result = choice(message="",options=[
             ("color","色卡"),
+            ("off","关闭调试模式[仅本次运行]"),
             ("exit","退出")])
         if result == "color":
             clear()
@@ -108,6 +110,9 @@ def debug_menu():
             print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
+        elif result == "off":
+            debug_mode = False
+            return
         elif result == "exit":
             break
     clear()
