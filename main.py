@@ -15,6 +15,8 @@ import getcode
 
 import random
 
+import requests
+
 version = "0.2.5-alpha.1"
 version_short = "0.2.5a1"
 
