@@ -9,6 +9,8 @@ from tkinter import filedialog
 
 import os
 
+import traceback
+
 import getcode
 
 import random
@@ -44,6 +46,9 @@ def check_update():
         print_formatted_text(HTML(info+"云端版本："+response.json()["tag_name"]), style=style)
     except Exception as e:
         print_formatted_text(HTML(error+f"检测更新失败！错误原因：{e}！"), style=style)
+        if debug_mode:
+            print_formatted_text(HTML(debug+"详细错误原因："), style=style)
+            traceback.print_exc()
 
 def pre_menu():
     clear()
@@ -364,3 +369,6 @@ if __name__ == "__main__":
     except Exception as e:
         clear()
         print_formatted_text(HTML(error+f"程序出现错误！错误原因：{e}，请立刻反馈于开发者！！！"), style=style)
+        if debug_mode:
+            print_formatted_text(HTML(debug+"详细错误原因："), style=style)
+            traceback.print_exc()
