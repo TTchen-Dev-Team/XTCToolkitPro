@@ -51,7 +51,7 @@ def check_update():
             response = requests.get("https://api.github.com/repos/TTWatchBox-Team/TTWatchBox/releases/latest")
             version_now = response.json()["tag_name"]
             if version_now != version:
-                print_formatted_text(HTML(info+"检测到新版本，请前往 GitHub 下载！"), style=style)
+                print_formatted_text(HTML(info+f"检测到新版本{version_now}，请前往 GitHub 下载！"), style=style)
             print_formatted_text(HTML(info+"没有到新版本"), style=style)
         except Exception as e:
             print_formatted_text(HTML(error+f"检测更新失败！错误原因：{e}！"), style=style)
