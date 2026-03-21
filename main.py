@@ -19,8 +19,8 @@ import random
 
 import requests
 
-version = "v0.2.5-alpha.2"
-version_short = "0.2.5a2"
+version = "v0.2.6-alpha.1"
+version_short = "0.2.6a1"
 
 debug_mode = True
 
@@ -159,7 +159,9 @@ def tools():
             )
             root.destroy()
             if file_path:
-                if os.system("device_check adb && adb wait-for-device push \""+file_path+"\" /storage/emulated/0/DCIM/Camera"):
+                os.system("device_check adb")
+                print()
+                if os.system("adb wait-for-device push \""+file_path+"\" /storage/emulated/0/DCIM/Camera"):
                     print_formatted_text(HTML(error+"传入失败！"), style=style)
                 else:
                     print_formatted_text(HTML(success+"传入完成！"), style=style)
@@ -180,7 +182,9 @@ def tools():
             )
             root.destroy()
             if file_path:
-                if os.system("device_check adb && adb wait-for-device push \""+file_path+"\" /storage/emulated/0/DCIM/Video/TTWatchBox"+str(random.randint(11111,99999))+".mp4"):
+                os.system("device_check adb")
+                print()
+                if os.system("adb wait-for-device push \""+file_path+"\" /storage/emulated/0/DCIM/Video/TTWatchBox"+str(random.randint(11111,99999))+".mp4"):
                     print_formatted_text(HTML(error+"传入失败！"), style=style)
                 else:
                     print_formatted_text(HTML(success+"传入完成！"), style=style)
@@ -247,7 +251,9 @@ def apk_menu():
             )
             root.destroy()
             if file_path:
-                if os.system("device_check adb && adb wait-for-device install \""+file_path+"\""):
+                os.system("device_check adb")
+                print()
+                if os.system("adb wait-for-device install \""+file_path+"\""):
                     print_formatted_text(HTML(error+"安装失败！"), style=style)
                 else:
                     print_formatted_text(HTML(success+"安装完成！"), style=style)
@@ -269,7 +275,9 @@ def apk_menu():
             )
             root.destroy()
             if file_path:
-                os.system("device_check adb && instmodule \""+file_path+"\"")
+                os.system("device_check adb")
+                print()
+                os.system("instmodule \""+file_path+"\"")
                 print()
                 print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
                 getch()
