@@ -125,7 +125,10 @@ def debug_menu():
             break
         elif result == "update_mode":
             clear()
-            update_mode = not update_mode
+            if update_mode:
+                update_mode = False
+            else:
+                update_mode = True
             print_formatted_text(HTML(info+f"检测更新状态：{update_mode}"), style=style)
             print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
