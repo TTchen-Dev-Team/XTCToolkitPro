@@ -93,7 +93,7 @@ def about():
     getch()
 
 def debug_menu():
-    global debug_mode
+    global debug_mode, update_mode
     while True:
         clear()
         os.system("lolcat logo.txt")
@@ -102,7 +102,7 @@ def debug_menu():
         result = choice(message="",options=[
             ("color","色卡"),
             ("off","关闭调试模式[仅本次运行]"),
-            ("update_mode","关闭/开启调试模式[仅本次运行]"),
+            ("update_mode","关闭/开启更新[仅本次运行]"),
             ("exit","退出")])
         if result == "color":
             clear()
