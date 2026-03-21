@@ -102,6 +102,7 @@ def debug_menu():
         result = choice(message="",options=[
             ("color","色卡"),
             ("off","关闭调试模式[仅本次运行]"),
+            ("update_mode","关闭/开启调试模式[仅本次运行]"),
             ("exit","退出")])
         if result == "color":
             clear()
@@ -121,7 +122,14 @@ def debug_menu():
             getch()
         elif result == "off":
             debug_mode = False
-            return
+            break
+        elif result == "update_mode":
+            clear()
+            update_mode = not update_mode
+            print_formatted_text(HTML(info+f"检测更新状态：{update_mode}"), style=style)
+            print()
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+            getch()
         elif result == "exit":
             break
     clear()
