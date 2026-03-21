@@ -23,7 +23,10 @@ import time
 
 version = "v0.2.6-alpha.2"
 version_short = "0.2.6a2"
+version_code = "20260321"
+version_time = "2026/03/21 21:22"
 
+test_mode = True
 debug_mode = True
 update_mode = False
 
@@ -71,7 +74,8 @@ def pre_menu():
     else:
         print_formatted_text(HTML(success+"启动完成！"), style=style)
     check_update()
-    print_formatted_text(HTML(warning+"你现在正在使用开发版本"), style=style)
+    if test_mode:
+        print_formatted_text(HTML(warning+"你现在正在使用开发版本"), style=style)
     if debug_mode:
         print_formatted_text(HTML(debug+"调试模式已开启！"), style=style)
     print_formatted_text(HTML(warning+"关于版权：由于玩机工具或多或少都会涉及版权问题，因此本工具仅供技术交流，请不要商用，下载后24小时删除！"), style=style)
@@ -81,14 +85,26 @@ def pre_menu():
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键进入 &lt;</ansibrightblack>"), style=style, end='')
     getch()
 
-def about():
+def about(debug_about=False):
     clear()
     os.system("lolcat logo.txt")
     print("="*50)
     os.system("lolcat thanks.txt")
     print("="*50)
-    print("开发版本 "+version)
-    print("开发版本存在较多未知的bug，非开发人员请勿使用此版本！！！")
+    if test_mode:
+        print("开发版本 "+version)
+        print("开发版本存在较多未知的bug，非开发人员请勿使用此版本！！！")
+    else:
+        print(version)
+    if debug_about:
+        print("="*50)
+        print("版本名："+version)
+        print("版本简写："+version_short)
+        print("版本号："+version_code)
+        print("版本构建时间："+version_time)
+        print(f"开发版本：{test_mode}")
+        print(f"调试模式：{debug_mode}")
+        print(f"检测更新：{update_mode}")
     print()
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键退出 &lt;</ansibrightblack>"), style=style, end='')
     getch()
@@ -104,6 +120,7 @@ def debug_menu():
             ("color","色卡"),
             ("off","关闭调试模式[仅本次运行]"),
             ("update_mode","关闭/开启更新[仅本次运行]"),
+            ("debug_about","关于脚本[详细版本]"),
             ("exit","退出")])
         if result == "color":
             clear()
@@ -132,6 +149,8 @@ def debug_menu():
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             time.sleep(0.1)
             getch()
+        elif result == "debug_about":
+            about(debug_about=True)
         elif result == "exit":
             break
     clear()
