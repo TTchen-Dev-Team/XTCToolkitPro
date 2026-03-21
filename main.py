@@ -23,6 +23,7 @@ version = "v0.2.6-alpha.1"
 version_short = "0.2.6a1"
 
 debug_mode = True
+update_mode = False
 
 style = Style.from_dict({
     'error': 'fg:ansired',
@@ -42,15 +43,21 @@ def clear():
     os.system("cls")
 
 def check_update():
-    print_formatted_text(HTML(info+"正在检测更新……"), style=style)
-    try:
-        response = requests.get("https://api.github.com/repos/TTWatchBox-Team/TTWatchBox/releases/latest")
-        print_formatted_text(HTML(info+"云端版本："+response.json()["tag_name"]), style=style)
-    except Exception as e:
-        print_formatted_text(HTML(error+f"检测更新失败！错误原因：{e}！"), style=style)
-        if debug_mode:
-            print_formatted_text(HTML(debug+"详细错误原因："), style=style)
-            traceback.print_exc()
+    if update_mode:
+        print_formatted_text(HTML(info+"正在检测更新……"), style=style)
+        try:
+            response = requests.get("https://api.github.com/repos/TTWatchBox-Team/TTWatchBox/releases/latest")
+            version_now = response.json()["tag_name"]
+            if version_now != version:
+                print_formatted_text(HTML(info+"检测到新版本，请前往 GitHub 下载！"), style=style)
+            print_formatted_text(HTML(info+"没有到新版本"), style=style)
+        except Exception as e:
+            print_formatted_text(HTML(error+f"检测更新失败！错误原因：{e}！"), style=style)
+            if debug_mode:
+                print_formatted_text(HTML(debug+"详细错误原因："), style=style)
+                traceback.print_exc()
+    else:
+        print_formatted_text(HTML(warning+f"检测更新已被禁用！"), style=style)
 
 def pre_menu():
     clear()
