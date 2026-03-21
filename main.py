@@ -19,6 +19,8 @@ import random
 
 import requests
 
+import time
+
 version = "v0.2.6-alpha.1"
 version_short = "0.2.6a1"
 
@@ -129,6 +131,7 @@ def debug_menu():
             print_formatted_text(HTML(info+f"检测更新状态：{update_mode}"), style=style)
             print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+            time.sleep(0.1)
             getch()
         elif result == "exit":
             break
