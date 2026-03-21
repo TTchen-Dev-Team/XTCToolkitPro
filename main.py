@@ -21,8 +21,8 @@ import requests
 
 import time
 
-version = "v0.2.6-alpha.1"
-version_short = "0.2.6a1"
+version = "v0.2.6-alpha.2"
+version_short = "0.2.6a2"
 
 debug_mode = True
 update_mode = False
