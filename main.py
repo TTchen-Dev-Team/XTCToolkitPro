@@ -21,8 +21,8 @@ import requests
 
 import time
 
-version = "v0.2.6-alpha.2"
-version_short = "0.2.6a2"
+version = "v0.2.6-alpha.3"
+version_short = "0.2.6a3"
 version_code = "20260321"
 version_time = "2026/03/21 21:22"
 
