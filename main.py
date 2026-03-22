@@ -21,10 +21,10 @@ import requests
 
 import time
 
-version = "v0.2.6-alpha.3"
-version_short = "0.2.6a3"
-version_code = "20260321"
-version_time = "2026/03/21 21:22"
+version = "v0.2.6-alpha.4"
+version_short = "0.2.6a4"
+version_code = "20260322"
+version_time = "2026/03/22 12:46"
 
 test_mode = True
 debug_mode = True
@@ -51,11 +51,33 @@ def check_update():
     if update_mode:
         print_formatted_text(HTML(info+"正在检测更新……"), style=style)
         try:
-            response = requests.get("https://api.github.com/repos/TTWatchBox-Team/TTWatchBox/releases/latest")
-            version_now = response.json()["tag_name"]
-            if version_now != version:
-                print_formatted_text(HTML(info+f"检测到新版本{version_now}，请前往 GitHub 下载！"), style=style)
-            print_formatted_text(HTML(info+"没有到新版本"), style=style)
+            response = requests.get("https://api.github.com/repos/TTWatchBox-Team/TTWatchBox/releases", timeout=10)
+            releases = response.json()
+            if not test_mode:
+                releases = [r for r in releases if not r.get('prerelease', False)]
+                releases.sort(key=lambda x: x.get('published_at', ''), reverse=True)
+            new_versions = []
+            for release in releases:
+                version_tag = release.get('tag_name', '')
+                if version_tag == version:
+                    break
+                new_versions.append(release)
+            if not new_versions:
+                print_formatted_text(HTML(info+"已经是最新版本！"), style=style)
+                return
+            print_formatted_text(HTML(info+"发现新版本！"), style=style)
+            for i, release in enumerate(new_versions, 1):
+                print()
+                version_tag = release.get('tag_name', '')
+                published_at = release.get('published_at', '未知')
+                is_prerelease = release.get('prerelease', False)
+                body = release.get('body', '无更新说明')
+                formatted_time = published_at if published_at != '未知' else '未知'
+                print_formatted_text(HTML(info+version_tag), style=style)
+                print_formatted_text(HTML(info+f"发布时间：{formatted_time}"), style=style)
+                if is_prerelease:
+                    print_formatted_text(HTML(warning+"版本为开发版本！"), style=style)
+                print_formatted_text(HTML(info+body), style=style)
         except Exception as e:
             print_formatted_text(HTML(error+f"检测更新失败！错误原因：{e}！"), style=style)
             if debug_mode:
