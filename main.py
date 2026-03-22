@@ -120,6 +120,7 @@ def debug_menu():
             ("color","色卡"),
             ("off","关闭调试模式[仅本次运行]"),
             ("update_mode","关闭/开启更新[仅本次运行]"),
+            ("python","python调试"),
             ("debug_about","关于脚本[详细版本]"),
             ("exit","退出")])
         if result == "color":
@@ -153,6 +154,17 @@ def debug_menu():
             about(debug_about=True)
         elif result == "exit":
             break
+        elif result == "python":
+            clear()
+            while True:
+                code = input(">>>")
+                if code == "exit()":
+                    break
+                try:
+                    exec(code)
+                except Exception as e:
+                    traceback.print_exc()
+
     clear()
 
 def tools():
